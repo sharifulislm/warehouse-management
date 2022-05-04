@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ProductService from './ProductService';
 
 const Service = () => {
    
@@ -7,11 +8,17 @@ const Service = () => {
     useEffect( () => {
         fetch('data.json')
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => setService(data));
     } ,[])
 
     return (
-        <div>
+        <div className='Container'>
+            <div className='row d-flex justify-content-center'>
+            {
+                service.map((services) => <ProductService key={services._id} services={services}></ProductService>)
+
+            }
+            </div>
             
             
         </div>

@@ -4,7 +4,7 @@ import './Benner.css';
 
 const Benner = () => {
     return (
-        <div className='benner-box'>
+        <div className='benner-box mb-5'>
             {/* <Carousel>
   <Carousel.Item>
     <img
