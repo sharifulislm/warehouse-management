@@ -3,41 +3,41 @@
       "_id": "6272c49b9c08cc258b79732c",
       "quantity": "$2,719.14",
       "images": "https://amigos-themes.com/profix/assets/images/service/item-4.jpg",
-      "price": 40,
+      "price": 225,
       "name": "Deirdre Rogers",
       "supplierName": "Booker Hogan",
       "gender": "male",
-      "description": "PERMADYNE"
+      "description": "PERMADYNE Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto. "
     },
     {
       "_id": "6272c49bd79d4c839b0930ee",
       "quantity": "$3,322.86",
       "images": "https://amigos-themes.com/profix/assets/images/service/item-5.jpg",
-      "price": 30,
+      "price": 225,
       "name": "Ruiz Delacruz",
       "supplierName": "Lourdes Best",
       "gender": "female",
-      "description": "ROBOID"
+      "description": "ROBOID Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49b2f409672d3228339",
       "quantity": "$3,071.21",
       "images": "https://amigos-themes.com/profix/assets/images/service/item-1.jpg",
-      "price": 39,
+      "price": 225,
       "name": "Latonya Strickland",
       "supplierName": "Terri Hooper",
       "gender": "female",
-      "description": "MENBRAIN"
+      "description": "MENBRAIN Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49b6a774623fc695f08",
       "quantity": "$1,273.30",
       "images": "https://amigos-themes.com/profix/assets/images/service/item-2.jpg",
-      "price": 38,
+      "price": 350,
       "name": "Adrienne Hendrix",
       "supplierName": "Dunlap Hernandez",
       "gender": "male",
-      "description": "ZOINAGE"
+      "description": "ZOINAGELorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49bf2930a668e574688",
@@ -47,36 +47,36 @@
       "name": "Martha Reynolds",
       "supplierName": "Farmer Robbins",
       "gender": "male",
-      "description": "ENJOLA"
+      "description": "ENJOLA Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49b12f3b15caa9408f5",
       "quantity": "$3,002.34",
       "images": "https://amigos-themes.com/profix/assets/images/service/item-6.jpg",
-      "price": 30,
+      "price": 350,
       "name": "Doreen Rodriguez",
       "supplierName": "Hurley Bradshaw",
       "gender": "male",
-      "description": "LUNCHPOD"
+      "description": "LUNCHPOD Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49b842217d24dd0afbf",
       "quantity": "$3,393.91",
       "images": "https://amigos-themes.com/profix/assets/images/service/motherboard-3.jpg",
-      "price": 32,
+      "price": 350,
       "name": "Mara French",
       "supplierName": "Matthews Hammond",
       "gender": "male",
-      "description": "CANDECOR"
+      "description": " Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     },
     {
       "_id": "6272c49b43aad09988d81949",
       "quantity": "$1,829.33",
       "images": "https://amigos-themes.com/profix/assets/images/service/service.jpg",
-      "price": 33,
+      "price": 350,
       "name": "Roy Carlson",
       "supplierName": "Sonja Flynn",
       "gender": "female",
-      "description": "XIIX"
+      "description": "XIIX Lorem ipsum, dolor sit amet consectetur adipisicing elit. A rerum exercitationem ipsum voluptatibus magni, optio architecto. Sint voluptatum consequatur eveniet delectus, quasi quaerat similique doloribus numquam fugit facilis eius architecto."
     }
   ]

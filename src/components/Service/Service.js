@@ -15,7 +15,7 @@ const Service = () => {
     return (
         <div className='Container container '>
             <div className='serviceName m-auto'>
-            <h1 className='text-center'>Services</h1>
+            <h1 className='text-center'>Store Parts</h1>
             <div className='aline-boxs'></div>
             <p className='w-50 mb-5 text-center m-auto'>Through our experienced operations team we can handle various kind of supply chain operations and services</p>
             </div>

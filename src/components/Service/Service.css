@@ -6,3 +6,16 @@
     background-color: coral;
     margin-bottom: 10px;
 }
+
+/* css start for products service  */
+button.update-btn.btn.btn-primary {
+    width: 100%;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 5px;
+}
+p.price {
+    background: bisque;
+    padding: 4px;
+    border-radius: 5px;
+}

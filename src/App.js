@@ -11,16 +11,18 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 import Service from './components/Service/Service';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Inventory from './components/Inventory/Inventory';
 
 function App() {
   return (
     <div className="">
  <Header></Header>
 
-
  <Routes>
    <Route path='/' element={<Home></Home>}></Route>
-   <Route path='Service' element={<Service></Service>}></Route>
+   <Route path='Inventory/:InventoryId' element={<Inventory></Inventory>}></Route>
+   <Route path='Service' element={ <PrivateRoute> <Service></Service> </PrivateRoute> }></Route>
    <Route path='Login' element={<Login></Login>}></Route>
    <Route path='SignUp' element={<SignUp></SignUp>}></Route>
    
