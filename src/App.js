@@ -1,17 +1,37 @@
 
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Benner from './components/Benner/Benner';
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import Footer from './components/Pages/Footer/Footer';
+import Login from './components/Pages/Login/Login';
+import SignUp from './components/Pages/SignUp/SignUp';
+import Notfound from './components/Pages/Notfound/Notfound';
+
+
 import Service from './components/Service/Service';
 
 function App() {
   return (
     <div className="">
  <Header></Header>
- <Benner></Benner>
- <Service> </Service>
 
-   <h1 className='text-danger'>this is home </h1>
+
+ <Routes>
+   <Route path='/' element={<Home></Home>}></Route>
+   <Route path='Service' element={<Service></Service>}></Route>
+   <Route path='Login' element={<Login></Login>}></Route>
+   <Route path='SignUp' element={<SignUp></SignUp>}></Route>
+   
+<Route path='*' element={<Notfound></Notfound>}>  </Route>
+
+
+ </Routes>
+
+<Footer></Footer>
+
+
+
     </div>
   );
 }

@@ -5,10 +5,10 @@ const ProductService = ({services}) => {
     console.log(services);
     const {description,name,images,price,supplierName,} =services;
     return (
-        <div className='col-12 col-lg-3 col-md-4'>
-            <Card style={{ width: '18rem' }}>
+        <div className='col-12 col-md-6 col-lg-4 card-box mb-3'>
+            <Card className='w-100'>
   <Card.Img variant="top" src={images} />
-  <Card.Body>
+  <Card.Body className='text-center'>
     <Card.Title>{name}</Card.Title>
     <p>{price}</p>
     <h6>{supplierName}</h6>
