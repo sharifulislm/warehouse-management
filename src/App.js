@@ -7,6 +7,7 @@ import Footer from './components/Pages/Footer/Footer';
 import Login from './components/Pages/Login/Login';
 import SignUp from './components/Pages/SignUp/SignUp';
 import Notfound from './components/Pages/Notfound/Notfound';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 import Service from './components/Service/Service';
@@ -30,7 +31,7 @@ function App() {
 
 <Footer></Footer>
 
-
+<ToastContainer />
 
     </div>
   );

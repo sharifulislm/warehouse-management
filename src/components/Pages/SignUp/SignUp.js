@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Loading/Loading';
 import './SignUp.css';
@@ -30,7 +30,7 @@ let from = location.state?.from?.pathname || "/";
 
   if (error) {
     HendelError = <div>
-        <p>Error:{error.message}</p>
+        <p className='text-danger'>Error:{error.message}</p>
       </div>
     
   }
@@ -89,7 +89,7 @@ let from = location.state?.from?.pathname || "/";
 <p className='m-0 pt-2 pb-2 input-dst'>Confirm New Password </p>
 <Form.Control onBlur={HandelConfirmPass} type="password" placeholder="Confirm New Password" />
 <br/>
-
+{HendelError}
 <Button  variant="primary w-50 mx-auto d-block mb-2" type="submit">
               SIGNUP
           </Button>
@@ -100,7 +100,7 @@ let from = location.state?.from?.pathname || "/";
 
 
         
-<p className='text-center mb-5'>Don't have an account? <small><a href="#">login</a></small></p>
+<p className='text-center mb-5'>Already have an account? <small> <Link to='/Login'>Login</Link></small></p>
           
       </Form>
       </div>

@@ -4,18 +4,39 @@ import './Social.css';
 import { AiFillGoogleCircle } from "react-icons/ai";
 import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../../Loading/Loading';
 
 
 const Social = () => {
 
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-    console.log(user);
-    console.log(loading);
-    console.log(error);
+    const navigate = useNavigate()
+const location = useLocation();
+let HendelError;
+let from = location.state?.from?.pathname || "/";
+
+  if (error) {
+    HendelError = <div>
+        <p className='text-danger'>Error:{error.message}</p>
+      </div>
+    
+  }
+  if (loading ) {
+    return( <Loading></Loading>)
+   
+  }
+  if(user) {
+  
+    navigate(from, { replace: true });
+  }
+
+  
     return (
         <div className='mb-2'>
 
+{HendelError}
 <Button onClick={()=> signInWithGoogle ()} variant="socialicon w-50 mx-auto d-block mb-2" type="submit">
           <AiFillGoogleCircle></AiFillGoogleCircle>  Continue
           </Button>

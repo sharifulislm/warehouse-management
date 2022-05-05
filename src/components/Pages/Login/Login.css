@@ -12,3 +12,10 @@
     .contaner-box {
      
     }
+    button.forgot-btn {
+        border: navajowhite;
+        background: none;
+        color: #1670e3;
+        text-decoration: underline;
+        font-weight: 700;
+    }

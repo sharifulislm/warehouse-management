@@ -10,7 +10,8 @@ const Notfound = () => {
 <h1 className='text-danger text-center mt-5 mb-2'>Oops! That page can't be found  </h1>
 <p className='text-center'>Unfortunately, something went wrong and this page does not exist. Try using the search or return to the previous page.</p>
 
-<Link className='back-btn ' to="/">Go Back to Home</Link>
+
+<Link className='back-btn' to='/'>Go Back to Home</Link>
 </div>
 <div className='Notfound'>
 
