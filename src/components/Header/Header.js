@@ -23,7 +23,7 @@ const Header = () => {
   <Nav.Link as={Link}to ="/">Home</Nav.Link>
 
   <Nav.Link as={Link}to="Service">Services</Nav.Link>
-  <Nav.Link as={Link}to="inventory/:inventoryId">inventory </Nav.Link>
+  <Nav.Link as={Link}to="ManageInventory">Manage item</Nav.Link>
 
 
 
@@ -42,21 +42,31 @@ const Header = () => {
 <Nav>
 
   
-{/*                              
-<Nav.Link as={Link}to="Login">Login</Nav.Link>
+                             
+{/* <Nav.Link as={Link}to="Login">Login</Nav.Link>
 <Nav.Link as={Link}to="SignUp">Signup
 </Nav.Link> */}
-                            
+
+<Nav.Link as={Link}to="AddItem">  AddItem</Nav.Link>
+
+
+
+                        
                       { 
-                      user ?      
+                      user 
+                      
+                      ?      
                             <Nav.Link onClick={handleSignOut}>
                             Sign out
-                        </Nav.Link>
+                        </Nav.Link> 
+                      
+                      
                         :
                             <Nav.Link as={Link} to="login">
                             Login
                         </Nav.Link>
                            }
+                        
 </Nav>
 </Navbar.Collapse>
 </Container>

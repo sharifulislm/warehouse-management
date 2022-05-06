@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import UseProducts from '../../Hooks/UseProducts';
 import ProductService from './ProductService';
 import './Service.css';
 
 const Service = () => {
+    const [products] = UseProducts()
    
-    const [service, setService] = useState([]);
-
-    useEffect( () => {
-        fetch('http://localhost:5000/inventory')
-        .then(res => res.json())
-        .then(data => setService(data));
-    } ,[])
 
     return (
         <div className='Container container '>
@@ -21,7 +16,7 @@ const Service = () => {
             </div>
             <div className='row d-flex justify-content-center'>
             {
-                service.slice(0, 6).map((services) => <ProductService key={services._id} services={services}></ProductService>)
+                products.slice(0, 6).map((services) => <ProductService key={services._id} services={services}></ProductService>)
 
             }
             </div>
