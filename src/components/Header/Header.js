@@ -8,7 +8,7 @@ import './Header.css';
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
+
   const handleSignOut = () => {
     signOut(auth);
   }
@@ -23,7 +23,7 @@ const Header = () => {
   <Nav.Link as={Link}to ="/">Home</Nav.Link>
 
   <Nav.Link as={Link}to="Service">Services</Nav.Link>
-  <Nav.Link as={Link}to="Inventory ">inventory </Nav.Link>
+  <Nav.Link as={Link}to="inventory/:inventoryId">inventory </Nav.Link>
 
 
 

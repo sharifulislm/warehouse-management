@@ -5,7 +5,7 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Loading from '../../../Loading/Loading';
+
 
 
 const Social = () => {
@@ -24,7 +24,7 @@ let from = location.state?.from?.pathname || "/";
     
   }
   if (loading ) {
-    return( <Loading></Loading>)
+   
    
   }
   if(user) {
@@ -36,7 +36,7 @@ let from = location.state?.from?.pathname || "/";
     return (
         <div className='mb-2'>
 
-{HendelError}
+
 <Button onClick={()=> signInWithGoogle ()} variant="socialicon w-50 mx-auto d-block mb-2" type="submit">
           <AiFillGoogleCircle></AiFillGoogleCircle>  Continue
           </Button>

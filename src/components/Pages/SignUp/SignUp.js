@@ -75,7 +75,7 @@ let from = location.state?.from?.pathname || "/";
       
 
          
-            <div className='m-auto col-lg-5  col-8 from-box mt-3 mb-5'>
+            <div className='m-auto col-lg-5  col-10 from-box mt-3 mb-5'>
                 <h4 className='text-center'>Create a New account</h4>
 
                 <p className='text-center'>Please provide the following details.</p>

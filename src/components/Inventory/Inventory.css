@@ -1,0 +1,8 @@
+button {
+    border: navajowhite;
+    border-radius: 6px;
+    font-weight: 400;
+    padding: 3px;
+    background: orange;
+    color: white;
+}

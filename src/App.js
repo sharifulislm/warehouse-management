@@ -15,13 +15,14 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Inventory from './components/Inventory/Inventory';
 
 function App() {
+  // firebase deploy
   return (
     <div className="">
  <Header></Header>
 
  <Routes>
    <Route path='/' element={<Home></Home>}></Route>
-   <Route path='Inventory/:InventoryId' element={<Inventory></Inventory>}></Route>
+   <Route path='inventory/:inventoryId' element={<PrivateRoute><Inventory></Inventory></PrivateRoute>}></Route>
    <Route path='Service' element={ <PrivateRoute> <Service></Service> </PrivateRoute> }></Route>
    <Route path='Login' element={<Login></Login>}></Route>
    <Route path='SignUp' element={<SignUp></SignUp>}></Route>

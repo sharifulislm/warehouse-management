@@ -72,7 +72,7 @@ const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth
               {/* <div className='box-from col-lg-6  col-12'> 
               
               </div> */}
-              <div className='m-auto col-lg-4  col-8 from-box mt-5 mb-5'>
+              <div className='m-auto col-lg-4  col-10 from-box mt-5 mb-5'>
                   <p className='text-center'>Sign in with your existing account</p>
        <Form onSubmit={HandelLoginSubmit}> 
   <p className=' input-dst'> Email Address</p>
