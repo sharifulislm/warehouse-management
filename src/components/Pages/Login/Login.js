@@ -51,6 +51,7 @@ const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth
       const HendelPassword = event => {
           const password = event.target.value;
           setPassword(password);
+        
       }
       
       const HandelLoginSubmit = event => {

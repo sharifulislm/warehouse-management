@@ -1,17 +1,28 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventory from '../../Hooks/useInventory';
+import auth from '../firebase.init';
 import './Inventory.css';
 
 const Inventory = () => {
     const {inventoryId} = useParams();
     const [service] = useInventory(inventoryId);
+    const [user] =useAuthState(auth)
     const { description,name,images,price,supplierName} =service;
 
-    let quantiy;
+    const [quantity, setQuantity] = useState({});
+    console.log(quantity);
+
+    // const navigate = useNavigate();
+     useEffect(() => {
+         fetch(``)
+     } ,[])
+
+
     const Handlequantiy = event => {
         event.preventDefault();
         const quantity ={
@@ -42,7 +53,7 @@ const Inventory = () => {
                   
                     <h6>Price: {price}</h6>
                     <h6>Supplier : {supplierName}</h6>
-                    <h4>quantity: {quantiy} </h4>
+                    <h4>quantity: {quantity.length} </h4>
                     <div>
                         <button style={{background:'#03ab4f'}}>Deliverd</button> <button style={{background: '#04366b'}}> Manage Inventories</button>
                     </div>
@@ -50,7 +61,7 @@ const Inventory = () => {
                    <Form onSubmit={Handlequantiy}>
                    <input placeholder='quantity' type="Number" name='quantity' /> 
                    
-                   <button style={{background: '#00c7bd'}}> Increase quantity</button>
+                   <button className='ms-1' style={{background: '#00c7bd'}}> Increase quantity</button>
 
                    </Form>
                     
