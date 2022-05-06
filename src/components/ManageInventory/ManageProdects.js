@@ -1,25 +1,33 @@
 import React from 'react';
-// import './Mangeprodects.css';
+import './Mangeprodects.css';
 import { AiFillDelete } from "react-icons/ai";
 
-const ManageProdects = ({services}) => {
-    const { _id,description,name,images,price,supplierName,} =services;
+const ManageProdects = (props) => {
+    // const {id}=services
+    const {services, handleRemoveProduct} = props;
+ 
+    const {_id,description,name,images,price,supplierName,} =services;
+
+
+
+
     return (
-        <div className='review-item'>
-        <div>
+        <div className='review-item '>
+        <div className='img-box'>
             <img src={images} alt="" />
         </div>
         <div className="review-item-details-container">
             <div className="review-item-details">
-                <p className="product-name" title={description}>
-                    { name.length > 20 ? name.slice(0, 20) + '...': name }
-                </p>
-                <p>Price: <span className='orange-color'>${price}</span></p>
+                <span>Name:{name}</span>
+                <div className='price-box'><p>Price: <span className='orange-color'>${price}</span></p>
                 <p><small>Supplier: {supplierName}</small></p>
-                <p><small>Quantity: </small></p>
+                <p><small>Quantity: </small></p></div>
+                <p className="product-name" title={description}>
+                   description: { description.length > 20 ? description.slice(0, 90) + '...': description }
+                </p>
             </div>
             <div className="delete-container">
-                <button  className='delete-button'>
+                <button onClick={()=>handleRemoveProduct(_id) } className='delete-button'>
                   <AiFillDelete></AiFillDelete>
                 </button>
             </div>

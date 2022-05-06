@@ -4,11 +4,14 @@
     border-radius: 8px;
     padding: 8px;
     margin-top: 21px;
-    width: 571px;
+    width: 100%;
     display: flex;
 }
-.review-item img{
-    width: 91px;
+.review-item img {
+    width: 90%;
+    margin-left: 5px;
+    padding: 0;
+    border-radius: 19px;
 }
 
 .review-item-details p{
@@ -27,7 +30,7 @@
 }
 
 .review-item .delete-button{
-    background: rgba(235, 87, 87, 0.3);
+    background: rgb(202 0 0);
     border: 0;
     height: 55px;
     width: 55px;
@@ -41,4 +44,7 @@
 }
 .prodect-contener{
     margin: 0 auto;
+}
+.img-box {
+    width: 20%;
 }

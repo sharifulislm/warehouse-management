@@ -1,16 +1,37 @@
 import React from 'react';
 import UseProducts from '../../Hooks/UseProducts';
 import ManageProdects from './ManageProdects';
-import './Mangeprodects.css';
+import './Mangeprodects.css'
 
 const ManageInventory = () => {
-    const [products] =UseProducts()
+    const [products,setProducts] =UseProducts([])
+    // const [servise, setServise]=useState([]);
+
+
+    const handleRemoveProduct = id =>{
+        const proceed = window.confirm('Are you sure you want to delete?');
+        if(proceed){
+            console.log('deleting user with id, ',products.id);
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data =>{
+                if(data.deletedCount > 0){
+                    console.log('deleted');
+                    const remaining = products.filter(user => user._id !== id);
+                    setProducts(remaining);
+                }
+            })
+        }
+    }
 
     return (
-        <div className='prodect-contener'>
+        <div className='prodect-contener container'>
             
             {
-                products.map((services) => <ManageProdects key={services._id} services={services}></ManageProdects>)
+               products.map((services) => <ManageProdects key={services._id} services={services} handleRemoveProduct={handleRemoveProduct} ></ManageProdects>)
 
             }
         </div>
