@@ -12,10 +12,10 @@ const Inventory = () => {
     const {inventoryId} = useParams();
     const [service] = useInventory(inventoryId);
     const [user] =useAuthState(auth)
-    const { description,name,images,price,supplierName} =service;
+    const { description,name,images,price,supplierName,quantity} =service;
 
-    const [quantity, setQuantity] = useState({});
-    console.log(quantity);
+    // const [quantity, setQuantity] = useState({});
+    // console.log(quantity);
 
     // const navigate = useNavigate();
      useEffect(() => {
@@ -53,7 +53,7 @@ const Inventory = () => {
                   
                     <h6>Price: {price}</h6>
                     <h6>Supplier : {supplierName}</h6>
-                    <h4>quantity: {quantity.length} </h4>
+                    <h4>quantity: {quantity} </h4>
                     <div>
                         <button style={{background:'#03ab4f'}}>Deliverd</button> <button style={{background: '#04366b'}}> Manage Inventories</button>
                     </div>

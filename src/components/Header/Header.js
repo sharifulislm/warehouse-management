@@ -47,7 +47,11 @@ const Header = () => {
 <Nav.Link as={Link}to="SignUp">Signup
 </Nav.Link> */}
 
-<Nav.Link as={Link}to="AddItem">  AddItem</Nav.Link>
+  {
+    user && <>
+    <Nav.Link as={Link}to="AddItem">  AddItem</Nav.Link>
+    </>
+  }
 
 
 

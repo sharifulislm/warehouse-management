@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import './Additem.css';
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
      console.log(data);
-     const url = `http://localhost:5000/inventory`;
+     const url = `http://localhost:5000/myitem`;
      fetch(url, {
          method: 'POST',
          headers: {
@@ -21,15 +22,16 @@ const AddItem = () => {
 
     return (
         <div className='container'>
-            <h2>Please add a service</h2>
-            <div className='w-50 mx-auto form-box'>
+           
+            <div className='w-50 mx-auto form-box mt-4 mb-2 pb-5'>
+            <h2 className='text-center mt-1 pt-1'>Please add  service</h2>
            <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
       <input className=' mb-3 ' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
       <input className='mb-2' placeholder='supplier ' {...register("supplierName")} />
       <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
       <input className='mb-2' placeholder='Photo url' type="text" {...register("images")} />
       <textarea className='mb-2' placeholder='Description' {...register("description")} />
-      <input type="submit" value="Add Item"/>
+      <input className='btn-primary' type="submit" value="Add new Item"/>
     </form>
         </div>
         </div>

@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UseProducts from '../../Hooks/UseProducts';
+
+
 import ManageProdects from './ManageProdects';
 import './Mangeprodects.css'
 
 const ManageInventory = () => {
+    // const [item, setItem] = useManage();
     const [products,setProducts] =UseProducts([])
     // const [servise, setServise]=useState([]);
 
@@ -29,6 +33,8 @@ const ManageInventory = () => {
 
     return (
         <div className='prodect-contener container'>
+          
+         <div className='m-auto text-center mt-3'> <button className='add-btn btn-primary mx-auto'>  <Link  to='/AddItem'>Add new item</Link></button></div>
             
             {
                products.map((services) => <ManageProdects key={services._id} services={services} handleRemoveProduct={handleRemoveProduct} ></ManageProdects>)
