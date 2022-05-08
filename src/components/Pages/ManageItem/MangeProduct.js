@@ -24,7 +24,7 @@ const MangeProduct = ({product}) => {
  {description.slice(0, 75)}...
 </Card.Text>
 
-<Button onClick={() => navigateManage(_id)} className='update-btn' variant="primary">   Stock update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button>
+{/* <Button onClick={() => navigateManage(_id)} className='update-btn' variant="primary">    update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button> */}
 </Card.Body>
 </Card>
     </div>

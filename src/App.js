@@ -18,6 +18,7 @@ import ManageInventory from './components/ManageInventory/ManageInventory';
 import ManageItem from './components/Pages/ManageItem/ManageItem';
 import Manageitems from './components/Pages/ManageItems/Manageitems';
 import ManageMyItem from './components/Pages/ManageItems/ManageMyItem';
+import Blog from './components/Pages/Blog/Blog';
 
 function App() {
   // firebase deploy
@@ -34,6 +35,7 @@ function App() {
    <Route path='userItem' element={ <PrivateRoute> <ManageMyItem></ManageMyItem> </PrivateRoute> }></Route>
    <Route path='MyItem' element={ <PrivateRoute> <Manageitems></Manageitems> </PrivateRoute> }></Route>
    <Route path='ManageInventory' element={<ManageInventory></ManageInventory>}></Route>
+   <Route path='Blog' element={<Blog></Blog>}></Route>
    <Route path='Login' element={<Login></Login>}></Route>
    <Route path='SignUp' element={<SignUp></SignUp>}></Route> 
   <Route path='*' element={<Notfound></Notfound>}>  </Route>

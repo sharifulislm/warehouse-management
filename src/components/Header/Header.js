@@ -22,23 +22,27 @@ const Header = () => {
 <Nav className="me-auto">
   <Nav.Link as={Link}to ="/">Home</Nav.Link>
 
-  <Nav.Link as={Link}to="Service">Services</Nav.Link>
-  <Nav.Link as={Link}to="ManageInventory">Manage item</Nav.Link>
+  
+  <Nav>
+<NavDropdown title="Manage Product " id="basic-nav-dropdown">
+          <NavDropdown.Item >  <Nav.Link as={Link}to="Service">Services</Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item> <Nav.Link as={Link}to="Blog"> Blog </Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item>   <Nav.Link as={Link}to="ManageInventory">Manage item</Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item>     <Nav.Link as={Link}to="AddItem">  AddItem</Nav.Link> </NavDropdown.Item>
 
-
-
-
-</Nav>
-
-<Nav>
-<NavDropdown title="inventory" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          {/* <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
         </NavDropdown>
 </Nav>
+
+
+
+
+
+
+</Nav>
+
+
 <Nav>
 
   
@@ -49,9 +53,17 @@ const Header = () => {
 
   {
     user && <>
-    <Nav.Link as={Link}to="AddItem">  AddItem</Nav.Link>
-    <Nav.Link as={Link}to="MyItem"> add My Item </Nav.Link>
-    <Nav.Link as={Link}to="userItem">  My Item </Nav.Link>
+    <Nav>
+<NavDropdown title="my item " id="basic-nav-dropdown">
+  
+          <NavDropdown.Item >  <Nav.Link as={Link}to="userItem">  My Item </Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item> <Nav.Link as={Link}to="MyItem"> Manage MyItem </Nav.Link></NavDropdown.Item>
+          {/* <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+        </NavDropdown>
+</Nav>
+  
+}
     </>
   }
 
