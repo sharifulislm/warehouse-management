@@ -7,3 +7,10 @@ button {
     color: white;
 
 }
+a.btn-manag {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
