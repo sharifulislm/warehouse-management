@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../../Loading/Loading';
 import './SignUp.css';
@@ -29,8 +30,10 @@ const location = useLocation();
 let from = location.state?.from?.pathname || "/";
 
   if (error) {
+    console.log(error.message);
     HendelError = <div>
         <p className='text-danger'>Error:{error.message}</p>
+        
       </div>
     
   }
@@ -39,8 +42,10 @@ let from = location.state?.from?.pathname || "/";
    
   }
   if(user) {
-      console.log(user);
-    navigate(from, { replace: true });
+    toast('Sign up successful')
+      return (navigate(from, { replace: true }));
+
+      
   }
  
   const Handelemail = event => {

@@ -1,6 +1,7 @@
 
-import React from 'react';
-import { Form} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link,useParams } from 'react-router-dom';
 // import { toast } from 'react-toastify';
@@ -12,10 +13,15 @@ const Inventory = () => {
     const {inventoryId} = useParams();
  
     const [service] = useInventory(inventoryId);
-    // const [user] =useAuthState(auth)
-    const { description,name,images,price,supplierName,gender,quantity} =service;
+   
+    // const [quantitys,setquantity] =useState({})
+    // console.log(quantitys);
 
-    // const [quantity, setQuantity] = useState({});
+    // const [user] =useAuthState(auth)
+    const { description,name,images,price,supplierName,quantity} =service;
+  
+
+    // const [quantitys, setQuantity] = useState([]);
     // console.log(quantity);
 
     // const navigate = useNavigate();
@@ -37,18 +43,24 @@ const Inventory = () => {
     //         }
     //     })
     // }
-    const Updatequantiy = (event) => {
+    const Updatequantiy = event => {
         event.event.preventDefault();
-        console.log(Updatequantiy);
-        let updateItemQuantiy = parseFloat(+ quantity) + parseFloat(event.target.quantity.value)
+        const quantity = event.target.quantity;
+        // const newQuantity =parseInt(quantity -1);
+        // const items = {newQuantity}
+        // console.log(Updatequantiy);
+        // let updateItemQuantiy = parseFloat(+ quantity) + parseFloat(event.target.quantity.value)
         // let updateQuantiyItem = event.target.quantity.value;
         // const quantity =event.target.quantity.value;
-        let newItem = {description,name,images,price,supplierName,gender,updateItemQuantiy}
+        // onChange={(e)=> {setquantity(e.target.value)}}
+        const newItem = {description,name,images,price,supplierName,quantity:quantity}
+        // setQuantity(newItem)
+    
         
 
         //  send data to the server
         const url = `http://localhost:5000/inventory/${inventoryId}`;
-            fetch(url , {
+            fetch(url ,  {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -86,11 +98,11 @@ const Inventory = () => {
                     <h6>Supplier : {supplierName}</h6>
                     <h4>quantity: {quantity} </h4>
                     <div>
-                     <button style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
+                     <button  style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
                     </div>
                     <br/>
                    <Form onSubmit={Updatequantiy}>
-                   <input placeholder='quantity' type="Number" name='quantity' /> 
+                   <input placeholder='quantity' type="text" name='quantity' /> 
                    
                    <button className='ms-1' style={{background: '#00c7bd'}}> Restock</button>
 

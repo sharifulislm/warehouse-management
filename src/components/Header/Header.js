@@ -24,7 +24,7 @@ const Header = () => {
 
   
   <Nav>
-<NavDropdown title="Manage Product " id="basic-nav-dropdown">
+<NavDropdown title="Manage" id="basic-nav-dropdown">
           <NavDropdown.Item >  <Nav.Link as={Link}to="Service">Services</Nav.Link></NavDropdown.Item>
           <NavDropdown.Item> <Nav.Link as={Link}to="Blog"> Blog </Nav.Link></NavDropdown.Item>
           <NavDropdown.Item>   <Nav.Link as={Link}to="ManageInventory">Manage item</Nav.Link></NavDropdown.Item>
@@ -63,7 +63,7 @@ const Header = () => {
         </NavDropdown>
 </Nav>
   
-}
+
     </>
   }
 

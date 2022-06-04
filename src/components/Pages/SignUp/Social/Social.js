@@ -5,6 +5,7 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -18,6 +19,7 @@ let HendelError;
 let from = location.state?.from?.pathname || "/";
 
   if (error) {
+    console.log(error)
     HendelError = <div>
         <p className='text-danger'>Error:{error.message}</p>
       </div>
@@ -28,10 +30,11 @@ let from = location.state?.from?.pathname || "/";
    
   }
   if(user) {
-  
-    navigate(from, { replace: true });
+    console.log(user);
+    toast('Sign up successful')
+    return (navigate(from, { replace: true }));
   }
-
+ 
   
     return (
         <div className='mb-2'>

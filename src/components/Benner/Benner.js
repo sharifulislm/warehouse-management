@@ -4,7 +4,11 @@ import './Benner.css';
 
 const Benner = () => {
     return (
-        <div className='benner-box mb-5'>
+        <div className='benner-box mb-5 d-flex align-items-center'>
+
+         <div className='w-50 benner-content  mx-auto '>
+         <h4 className='text-light '>Through our experienced operations team we can handle various kind of supply chain operations and services</h4>
+         </div>
             {/* <Carousel>
   <Carousel.Item>
     <img

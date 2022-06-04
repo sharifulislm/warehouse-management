@@ -2,7 +2,7 @@ import  { useEffect, useState } from 'react';
 
 const useInventory = inventoryId => {
     const [service, setService] = useState({});
-    console.log(service);
+   
 
     useEffect( () =>{
         const url = `http://localhost:5000/inventory/${inventoryId}`;
