@@ -21,31 +21,10 @@ const Inventory = () => {
     const { description,name,images,price,supplierName,quantity} =service;
   
 
-    // const [quantitys, setQuantity] = useState([]);
-    // console.log(quantity);
 
-    // const navigate = useNavigate();
-  
-
-
-    // const Handlequantiy = event => {
-    //     event.preventDefault();
-    //     const quantity ={
-    //      quantiy : event.target.quantity.value 
-    //     }
-   
-    //     axios.post('http://localhost:5000/quantity',quantity)
-    //     .then(response =>{
-    //         const {data} = response;
-    //         if(data.insertedId){
-    //             toast('Your quantity has been increased !!!');
-    //             event.target.reset();
-    //         }
-    //     })
-    // }
     const Updatequantiy = event => {
         event.event.preventDefault();
-        const quantity = event.target.quantity;
+        // const quantity = event.target.quantity;
         // const newQuantity =parseInt(quantity -1);
         // const items = {newQuantity}
         // console.log(Updatequantiy);
@@ -98,7 +77,7 @@ const Inventory = () => {
                     <h6>Supplier : {supplierName}</h6>
                     <h4>quantity: {quantity} </h4>
                     <div>
-                     <button  style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
+                     <button style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
                     </div>
                     <br/>
                    <Form onSubmit={Updatequantiy}>

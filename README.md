@@ -1,10 +1,12 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+warehouse-management Projects [warehouse-management](https://warehouse-management-a16cc.web.app/).
 
-## Available Scripts
 
-In the project directory, you can run:
+
+- User can add a product and can see the added product on my items page 
+ - User can also delete this product in manage inventory page .ets
+- Projects Link: [Live project](https://warehouse-management-a16cc.web.app/) ||  gitHubClienSide|| GitHub serverside
 
 ### `npm start`
 
