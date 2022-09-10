@@ -1,69 +1,97 @@
 
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import { useQuery } from 'react-query';
 
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link,useParams } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import useInventory from '../../Hooks/useInventory';
+
+import Loading from '../Loading/Loading';
 // import auth from '../firebase.init';
 import './Inventory.css';
 
 const Inventory = () => {
     const {inventoryId} = useParams();
  
-    const [service] = useInventory(inventoryId);
+    // const [service] = useInventory(inventoryId);
+    const [Deliverd ,setDeliverd]=useState('');
+    console.log(Deliverd);
+
    
     // const [quantitys,setquantity] =useState({})
     // console.log(quantitys);
 
-    // const [user] =useAuthState(auth)
-    const { description,name,images,price,supplierName,quantity} =service;
-  
+    const url = `http://localhost:5000/inventory/${inventoryId}`;
+ 
+    const {data: services, isLoading,refetch} = useQuery(['order',inventoryId], () => fetch(url,{
+        method: 'GET',
+        headers:{
+          'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      }).then(res => res.json()));
+      if(isLoading){
+         return <Loading></Loading>
+      }
 
-
-    const Updatequantiy = event => {
-        event.event.preventDefault();
-        // const quantity = event.target.quantity;
-        // const newQuantity =parseInt(quantity -1);
-        // const items = {newQuantity}
-        // console.log(Updatequantiy);
-        // let updateItemQuantiy = parseFloat(+ quantity) + parseFloat(event.target.quantity.value)
-        // let updateQuantiyItem = event.target.quantity.value;
-        // const quantity =event.target.quantity.value;
-        // onChange={(e)=> {setquantity(e.target.value)}}
-        const newItem = {description,name,images,price,supplierName,quantity:quantity}
-        // setQuantity(newItem)
     
+    const { _id,email,description,name,images,price,supplierName,quantity} =services;
+    // const gmail =user?.email;
+    console.log(email);
+    console.log(_id);
+    const HandaleDeliverd =() => {
+
+        const quantitys = quantity => quantity - 1;
+        setDeliverd(quantitys)
+        if(quantitys > 1 ){
+          
+        }
         
-
-        //  send data to the server
-        const url = `http://localhost:5000/inventory/${inventoryId}`;
-            fetch(url ,  {
-                method:'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newItem)
-            })
-            .then(res => res.json())
-            .then (data => {
-                console.log('success', data);
-                alert('update succesfully');
-              
-            })
-
+    }
          
+     
+
+  
+                
+    const handlereview = event => { 
+        event.preventDefault();
+
+        const quantitys = {
             
+            quantity:event.target.quantity.value,
+        
+        }
+        console.log(quantitys);
+         
+        const url = `http://localhost:5000/update/${email}`;
+        console.log(url);
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',},
+            body: JSON.stringify(quantitys)
+        })
+     
+        .then(res =>res.json())
+        .then(data =>{
+            if(data){
+                toast.success('Sucessfully updated quantity ');
+                console.log("sucessfully updated your ",data);
+                event.target.reset();
+                refetch()
+             
+              
+            }
+          
+    })
+        
+    }
       
 
 
-    }
-
-
-
     return (
-        <div className='container mt-5'>
+        <div className='container mt-5 mb-4'>
             <div className='row'>
                 <div className='col-12 col-lg-6'>
                     <img className='w-100 p-1 rounded' src={images} alt="" />
@@ -77,20 +105,20 @@ const Inventory = () => {
                     <h6>Supplier : {supplierName}</h6>
                     <h4>quantity: {quantity} </h4>
                     <div>
-                     <button style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
+                     <button onClick={HandaleDeliverd}  style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
                     </div>
                     <br/>
-                   <Form onSubmit={Updatequantiy}>
-                   <input placeholder='quantity' type="text" name='quantity' /> 
-                   
-                   <button className='ms-1' style={{background: '#00c7bd'}}> Restock</button>
+               
+                   <form className='m-auto mx-auto text-center' onSubmit={handlereview}>
+                   <span className='border p-2'>{email}</span> 
+                   <br></br>
+                <input className='input  m-auto mb-2 input-bordered w-full ' type="text"name='quantity'  />
+              <br/>
+              <input className=" btn btn-dark" type="submit" value="Update"/>
 
-                   </Form>
+              
+     </form>
                     
-                    
-
-                  
-
 
                 </div>
 
