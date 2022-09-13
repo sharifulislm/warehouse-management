@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 
@@ -14,39 +15,54 @@ import './Inventory.css';
 
 const Inventory = () => {
     const {inventoryId} = useParams();
- 
-    // const [service] = useInventory(inventoryId);
-    const [Deliverd ,setDeliverd]=useState('');
-    console.log(Deliverd);
+    const [service ,setService]=useState({});
+    // const [service,setService] = useInventory(inventoryId);
+    // console.log(service.quantity);
+    const [Deliverd ,setDeliverd]=useState();
+   
+    console.log(service);
+    // console.log(quantitys);
 
    
     // const [quantitys,setquantity] =useState({})
     // console.log(quantitys);
+useEffect(() => {
 
-    const url = `http://localhost:5000/inventory/${inventoryId}`;
+
  
-    const {data: services, isLoading,refetch} = useQuery(['order',inventoryId], () => fetch(url,{
-        method: 'GET',
-        headers:{
-          'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        }
-      }).then(res => res.json()));
-      if(isLoading){
-         return <Loading></Loading>
-      }
+    const url = `http://localhost:5000/inventory/${inventoryId}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setService(data));
+
+
+},[])
+    
+    const { _id,email,description,name,images,price,supplierName,quantity} =service;
+    console.log(email);
+    console.log(service);
 
     
-    const { _id,email,description,name,images,price,supplierName,quantity} =services;
-    // const gmail =user?.email;
-    console.log(email);
-    console.log(_id);
     const HandaleDeliverd =() => {
-
-        const quantitys = quantity => quantity - 1;
-        setDeliverd(quantitys)
-        if(quantitys > 1 ){
-          
-        }
+     
+            const fieldQuantity = parseInt(service.quantity);
+            const addQuantity = fieldQuantity - 1;
+            const updateQuantity = { addQuantity };
+            const url = `http://localhost:5000/update/${email}`;
+            fetch(url, {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(updateQuantity),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                const quantity = updateQuantity.addQuantity;
+                const newService = { ...service, quantity };
+                setService(newService);
+                toast("Your Delivered is successfully");
+              });
         
     }
          
@@ -56,13 +72,14 @@ const Inventory = () => {
                 
     const handlereview = event => { 
         event.preventDefault();
-
-        const quantitys = {
-            
-            quantity:event.target.quantity.value,
-        
+        const OldQuantity = parseInt(service.quantity);
+        const inpustQuantity =parseInt(event.target.quantity.value);
+        console.log(inpustQuantity);
+        const TotalQuantitys = OldQuantity + inpustQuantity;
+        const Updatequantitys = {
+            TotalQuantitys
         }
-        console.log(quantitys);
+        console.log(Updatequantitys);
          
         const url = `http://localhost:5000/update/${email}`;
         console.log(url);
@@ -70,16 +87,21 @@ const Inventory = () => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',},
-            body: JSON.stringify(quantitys)
+            body: JSON.stringify(Updatequantitys)
         })
      
         .then(res =>res.json())
         .then(data =>{
-            if(data){
+            if(data.modifiedCount> 0){
+                const Modifiequantity = Updatequantitys.TotalQuantitys;
+                const newQuantity = {...service,Modifiequantity}
+                setService(newQuantity);
                 toast.success('Sucessfully updated quantity ');
                 console.log("sucessfully updated your ",data);
                 event.target.reset();
-                refetch()
+    
+                // refetch()
+             
              
               
             }
@@ -113,6 +135,7 @@ const Inventory = () => {
                    <span className='border p-2'>{email}</span> 
                    <br></br>
                 <input className='input  m-auto mb-2 input-bordered w-full ' type="text"name='quantity'  />
+                {/* <input className='w-100 mb-2' onChange={(e)=> {setQuantitys(e.target.value)}} type="number" name="quantity"/> */}
               <br/>
               <input className=" btn btn-dark" type="submit" value="Update"/>
 
