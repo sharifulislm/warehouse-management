@@ -70,45 +70,33 @@ useEffect(() => {
 
   
                 
-    const handlereview = event => { 
+    const handleAddQuantity = (event) => {
         event.preventDefault();
-        const OldQuantity = parseInt(service.quantity);
-        const inpustQuantity =parseInt(event.target.quantity.value);
-        console.log(inpustQuantity);
-        const TotalQuantitys = OldQuantity + inpustQuantity;
-        const Updatequantitys = {
-            TotalQuantitys
-        }
-        console.log(Updatequantitys);
-         
-        const url = `http://localhost:5000/update/${email}`;
-        console.log(url);
+        const fieldQuantity = parseInt(service.quantity);
+        const inputQuantity = parseInt(event.target.quantity.value);
+        const addQuantity = fieldQuantity + inputQuantity;
+        const updateQuantity = { addQuantity };
+        const url = `http://localhost:5000/update/${service.email}`;
         fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',},
-            body: JSON.stringify(Updatequantitys)
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateQuantity),
         })
-     
-        .then(res =>res.json())
-        .then(data =>{
-            if(data.modifiedCount> 0){
-                const Modifiequantity = Updatequantitys.TotalQuantitys;
-                const newQuantity = {...service,Modifiequantity}
-                setService(newQuantity);
-                toast.success('Sucessfully updated quantity ');
-                console.log("sucessfully updated your ",data);
-                event.target.reset();
-    
-                // refetch()
-             
-             
-              
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              const quantity = updateQuantity.addQuantity;
+              const newProduct = { ...service, quantity };
+              setService(newProduct);
+              toast("Restock is successfully");
+              event.target.reset();
             }
-          
-    })
+          });
         
-    }
+        
+      };
       
 
 
@@ -131,7 +119,7 @@ useEffect(() => {
                     </div>
                     <br/>
                
-                   <form className='m-auto mx-auto text-center' onSubmit={handlereview}>
+                   <form className='m-auto mx-auto text-center' onSubmit={handleAddQuantity}>
                    <span className='border p-2'>{email}</span> 
                    <br></br>
                 <input className='input  m-auto mb-2 input-bordered w-full ' type="text"name='quantity'  />
