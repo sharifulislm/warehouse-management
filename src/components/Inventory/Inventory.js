@@ -75,7 +75,7 @@ useEffect(() => {
         const fieldQuantity = parseInt(service.quantity);
         const inputQuantity = parseInt(event.target.quantity.value);
         const addQuantity = fieldQuantity + inputQuantity;
-        const updateQuantity = { addQuantity };
+        const updateQuantity = { quantity:addQuantity };
         const url = `http://localhost:5000/update/${service.email}`;
         fetch(url, {
           method: "PUT",
@@ -87,7 +87,7 @@ useEffect(() => {
           .then((res) => res.json())
           .then((data) => {
             if (data.modifiedCount > 0) {
-              const quantity = updateQuantity.addQuantity;
+              const quantity = addQuantity;
               const newProduct = { ...service, quantity };
               setService(newProduct);
               toast("Restock is successfully");

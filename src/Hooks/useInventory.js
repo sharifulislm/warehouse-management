@@ -12,6 +12,6 @@ const useInventory = inventoryId => {
         .then(data => setService(data));
 
     }, [inventoryId]);
-    return [service,setService]
+    return [service]
 }
 export default useInventory;
