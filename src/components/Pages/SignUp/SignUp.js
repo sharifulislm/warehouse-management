@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useToken from '../../../Hooks/useToken';
 import auth from '../../firebase.init';
 import Loading from '../../Loading/Loading';
 import './SignUp.css';
@@ -27,7 +28,16 @@ const [
 
 const navigate = useNavigate()
 const location = useLocation();
+const [token] = useToken(user);
 let from = location.state?.from?.pathname || "/";
+useEffect( () =>{
+  if (token) {
+      navigate(from, { replace: true });
+  }
+}, [token,from, navigate])
+
+
+
 
   if (error) {
     console.log(error.message);

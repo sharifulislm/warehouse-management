@@ -14,7 +14,7 @@ const ManageItem = () => {
         </div>
         <div className='row d-flex justify-content-center'>
                {
-                item.slice(0, 4).map((product) => <MangeProduct key={product._id} product={product}></MangeProduct> )
+                item?.slice(0, 4).map((product) => <MangeProduct key={product._id} product={product}></MangeProduct> )
 
             }
         </div>

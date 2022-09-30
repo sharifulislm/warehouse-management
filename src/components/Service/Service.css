@@ -15,7 +15,8 @@ button.update-btn.btn.btn-primary {
     border-radius: 5px;
 }
 p.price {
-    background: bisque;
+    /* background: bisque; */
+    font-weight: bold;
     padding: 4px;
     border-radius: 5px;
 }

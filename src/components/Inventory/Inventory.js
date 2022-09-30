@@ -30,7 +30,7 @@ useEffect(() => {
 
 
  
-    const url = `http://localhost:5000/inventory/${inventoryId}`;
+    const url = `https://mighty-badlands-12872.herokuapp.com/inventory/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setService(data));
@@ -47,8 +47,8 @@ useEffect(() => {
      
             const fieldQuantity = parseInt(service.quantity);
             const addQuantity = fieldQuantity - 1;
-            const updateQuantity = { addQuantity };
-            const url = `http://localhost:5000/update/${email}`;
+            const updateQuantity = {quantity:addQuantity };
+            const url = `https://mighty-badlands-12872.herokuapp.com/update/${email}`;
             fetch(url, {
               method: "PUT",
               headers: {
@@ -58,7 +58,7 @@ useEffect(() => {
             })
               .then((res) => res.json())
               .then((data) => {
-                const quantity = updateQuantity.addQuantity;
+                const quantity = updateQuantity;
                 const newService = { ...service, quantity };
                 setService(newService);
                 toast("Your Delivered is successfully");
@@ -76,7 +76,7 @@ useEffect(() => {
         const inputQuantity = parseInt(event.target.quantity.value);
         const addQuantity = fieldQuantity + inputQuantity;
         const updateQuantity = { quantity:addQuantity };
-        const url = `http://localhost:5000/update/${service.email}`;
+        const url = `https://mighty-badlands-12872.herokuapp.com/update/${service.email}`;
         fetch(url, {
           method: "PUT",
           headers: {

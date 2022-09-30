@@ -3,6 +3,7 @@ import Benner from '../Benner/Benner';
 import ManageItem from '../Pages/ManageItem/ManageItem';
 import Middlesection from '../Pages/Middlesection/Middlesection';
 import Service from '../Service/Service';
+import Contact from './Contact';
 
 const Home = () => {
     return (
@@ -10,8 +11,11 @@ const Home = () => {
             <Benner></Benner>
             <Service></Service>
 
-            <Middlesection></Middlesection>  
-            <ManageItem></ManageItem>         
+            <Middlesection></Middlesection> 
+            {/* <ManageItem></ManageItem>     */}
+            <Contact></Contact>
+           
+               
         </div>
     );
 };

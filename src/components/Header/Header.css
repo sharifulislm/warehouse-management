@@ -1,5 +1,5 @@
 nav.navbar-box.navbar.navbar-expand-lg.navbar-dark.sticky-top {
-    background-color: #0665edb0 !important;
+    /* background-color: #0665edb0 !important; */
     padding: 13px;
     color: white;
 }
@@ -9,3 +9,11 @@ div#responsive-navbar-nav a {
     font-weight: 500;
 }
 
+.navbar-end.hidden.lg\:flex {
+    margin-left: 375px;
+    /* float: right; */
+}
+a.text-bold.text-xl {
+    font-weight: 700;
+    color: white;
+}

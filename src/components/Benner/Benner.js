@@ -7,7 +7,11 @@ const Benner = () => {
         <div className='benner-box mb-5 d-flex align-items-center'>
 
          <div className='w-50 benner-content  mx-auto '>
-         <h4 className='text-light '>Through our experienced operations team we can handle various kind of supply chain operations and services</h4>
+<h1 className='text-light fs-1 text-center'>
+NEW TECHNOLOGY<br></br> AND BUILD </h1>
+
+<h6 className='text-light text-center'>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</h6>
+<button type="button" className="btn   btn-secondary m-auto d-flex justify-content-center mt-4 ">Get Started </button>
          </div>
             {/* <Carousel>
   <Carousel.Item>

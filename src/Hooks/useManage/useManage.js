@@ -4,7 +4,7 @@ const useManage = () => {
     const [item, setItem] = useState([]);
 
     useEffect( () =>{
-        fetch('http://localhost:5000/myitem')
+        fetch('https://mighty-badlands-12872.herokuapp.com/myitem')
         .then(res => res.json())
         .then(data => setItem(data));
         

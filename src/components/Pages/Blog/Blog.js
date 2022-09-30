@@ -1,35 +1,105 @@
-import React from 'react';
+// import React from 'react';
+// import './Blog.css';
 
-const Blog = () => {
-    return (
-        <div className='container p-3'>
-            <div className='content-box'>
-                <h1> added something new  </h1>
-                <h1 className='text-center mt-3'> Difference between javascript and nodejs </h1>
-                <p className='text-center'> JavaScript is a simple programming language that runs in any browser JavaScript Engine. Whereas Node JS is an interpreter or running environment for a JavaScript programming language that holds many excesses, it requires libraries that can easily be accessed from JavaScript programming for better use. </p>
-            </div>
-            <div className='content-box'>
-                <h4 className='text-center mt-3'>When should you use nodejs and when should you use mongodb </h4>
-                <p className='text-center'> MongoDB and NodeJS are two different technologies. MonogDB is a database system which gives you a chance to efficiently store documents in a database and to perform operations like data updates, or to search documents by some criterias.
 
-NodeJS's responsibilty is especially to execute your application. </p>
-            </div>
-            <div className='content-box'>
-                <h1 className='text-center mt-3'>Differences between sql and nosql databases. </h1>
-                <p className='text-center'>
-Difference between SQL and NoSQL
-Prerequisites – SQL, NoSQL 
-When it comes to choosing a database the biggest decisions is picking a relational (SQL) or non-relational (NoSQL) data structure. While both the databases are viable options still there are certain key differences between the two that users must keep in mind when making a decision. </p>
-            </div>
-            <div className='content-box'>
-                <h1 className='text-center mt-3'>What is the purpose of jwt and how does it work </h1>
-                <p className='text-center'>
-                
-JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.. </p>
-            </div>
-            
-        </div>
-    );
-};
 
-export default Blog;
+// const end = new Date("May 03, 2025 00:00:00").getTime();
+// // const end = new Date("November 09, 2020 00:00:00").getTime();
+// const dayEl = document.querySelector(".days");
+// const hoursEl = document.querySelector(".hours");
+// const minutesEl = document.querySelector(".minutes");
+// const secondsEl = document.querySelector(".seconds");
+// const seconds = 1000;
+// const minutes = seconds * 60;
+// const hours = minutes * 60;
+// const days = hours * 24;
+
+// const x = setInterval(function () {
+//   let now = new Date().getTime();
+//   const difference = end - now;
+
+//   if (difference < 0) {
+//     clearInterval(x);
+//     document.getElementById("done").innerHTML = "We're married! ðŸŽ‰";
+//     return;
+//   }
+
+//   dayEl.innerText = Math.floor(difference / days);
+//   hoursEl.innerText = Math.floor((difference % days) / hours);
+//   minutesEl.innerText = Math.floor((difference % hours) / minutes);
+//   secondsEl.innerText = Math.floor((difference % minutes) / seconds);
+// }, seconds);
+
+
+// const Blog = () => {
+//     return (
+//         // <!--====== COMING SOON PART START ======-->
+//         <section
+//            className="
+//            coming-soon-area coming-soon-one
+//            d-flex
+//            align-items-center
+//            bg_cover
+//            "
+//            style="background-image: url(https://cdn.ayroui.com/1.0/images/coming-soon/background.png)"
+//            >
+//            <div className="container">
+//               <div className="row justify-content-center">
+//                  <div className="col-lg-8">
+//                     <div className="coming-soon-content text-center">
+//                        <div className="countdown">
+//                           <ul id="countdown-example">
+//                              <li>
+//                                 <span className="count days">29</span>
+//                                 <p className="text days_text">Days</p>
+//                              </li>
+//                              <li>
+//                                 <span className="count hours">53</span>
+//                                 <p className="text hours_text">Hours</p>
+//                              </li>
+//                              <li>
+//                                 <span className="count minutes">34</span>
+//                                 <p className="text minutes_text">Minutes</p>
+//                              </li>
+//                              <li>
+//                                 <span className="count seconds">08</span>
+//                                 <p className="text seconds_text">Seconds</p>
+//                              </li>
+//                           </ul>
+//                        </div>
+//                        <h2 className="coming-soon-title">coming soon</h2>
+//                        <div className="coming-soon-btn rounded-buttons">
+//                           <ul>
+//                              <li>
+//                                 <a
+//                                    href="javascript:void(0)"
+//                                    className="btn primary-btn-outline rounded-full"
+//                                    >
+//                                 LEARN MORE
+//                                 </a>
+//                              </li>
+//                              <li>
+//                                 <a
+//                                    href="javascript:void(0)"
+//                                    className="btn primary-btn rounded-full"
+//                                    >
+//                                 GET NOTIFY
+//                                 </a>
+//                              </li>
+//                           </ul>
+//                        </div>
+//                        {/* <!-- rounded-buttons --> */}
+//                     </div>
+//                     {/* <!-- coming soon content --> */}
+//                  </div>
+//               </div>
+//               {/* <!-- row --> */}
+//            </div>
+//            {/* <!-- container --> */}
+//         </section>
+//         // <!--====== COMING SOON PART ENDS ======-->
+      
+//     );
+// };
+
+// export default Blog;

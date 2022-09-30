@@ -27,7 +27,7 @@ const Manageitems = () => {
             
         
     
-        axios.post('http://localhost:5000/manageitem',myItem)
+        axios.post('https://mighty-badlands-12872.herokuapp.com/manageitem',myItem)
         .then(response =>{
             const {data} = response;
             if(data.insertedId){
@@ -39,33 +39,41 @@ const Manageitems = () => {
         })
     }
     return (
-        <div className='w-50 mx-auto'>
-       <h1 className='text-center mb-2 mt-1'> Wellcome  {user.displayName}</h1>
+        <div className='container mt-4 mb-4'>
+   
 
-       <h3 className='text-center mb-1'> Please add new item </h3>
+       <div className='w-80 border p-6 shadow p-3 mb-5 bg-body rounded'>
+       <h3 className='text-center mb-1 font-blod'> Please add new item </h3>
      
-        <form onSubmit={handlePlaceOrder}>
+        <form className='row p-5' onSubmit={handlePlaceOrder}>
+<div className='col-6'>
 
-            <input className='w-100 mb-2' type="text" value={user?.displayName} name="name" placeholder='name' required readOnly disabled/>
-            <br />
-            <input className='w-100 mb-2' type="email" value={user?.email} name="email" placeholder='email' required readOnly disabled />
+            <span>Your Email</span> 
+            <input className='w-100 ' type="email" value={user?.email} name="email" placeholder='email' required readOnly disabled />
          <br/>
-           
-            <input className='w-100 mb-2' onChange={(e)=> {setImages(e.target.value)}} type="text"  placeholder='Images url' />
+         <span>Images url</span> 
+            <input className='w-100 ' onChange={(e)=> {setImages(e.target.value)}} type="text"  placeholder='' />
             <br />
-            <input className='w-100 mb-2' onChange={(e)=> {setquantity(e.target.value)}} type="number" name="quantity" placeholder='quantity' required />
+            <span>quantity</span> 
+            <input className='w-100 ' onChange={(e)=> {setquantity(e.target.value)}} type="number" name="quantity" placeholder='' required />
+            <br /></div>
+         <div className='col-6'>
+         <span>Description</span> 
+            <input className='w-100 ' onChange={(e)=> {setDescription(e.target.value)}} type="text" name="Description" placeholder='' required />
             <br />
-            <input className='w-100 mb-2' onChange={(e)=> {setDescription(e.target.value)}} type="text" name="Description" placeholder='Description' required />
+            <span>Price</span> 
+            <input className='w-100 ' onChange={(e)=> {setPrice(e.target.value)}} type="number" name="Price" placeholder='' required />
             <br />
-            <input className='w-100 mb-2' onChange={(e)=> {setPrice(e.target.value)}} type="number" name="Price" placeholder='Price' required />
+            <span>supplierName</span> 
+            <input className='w-100 ' onChange={(e)=> {setsupplierName(e.target.value)}} type="text" name="supplierName" placeholder='' required />
             <br />
-            <input className='w-100 mb-2' onChange={(e)=> {setsupplierName(e.target.value)}} type="text" name="supplierName" placeholder='supplierName' required />
-            <br />
-            <input className='btn text-center m-auto mx-auto  btn-primary' type="submit" value="Add you item" />
+         </div>
+            <input className='btn text-center m-auto mx-auto w-50 mb-5  mt-4 btn-secondary' type="submit" value="Add you item" />
         </form>
 
-
+     
       
+    </div>
     </div>
     );
 };

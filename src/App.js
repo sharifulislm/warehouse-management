@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Footer from './components/Pages/Footer/Footer';
+import Footer from './components/Pages/Footers/Footers';
 import Login from './components/Pages/Login/Login';
-import SignUp from './components/Pages/SignUp/SignUp';
+// import SignUp from './components/Pages/SignUp/SignUp';
 import Notfound from './components/Pages/Notfound/Notfound';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -19,6 +19,7 @@ import ManageItem from './components/Pages/ManageItem/ManageItem';
 import Manageitems from './components/Pages/ManageItems/Manageitems';
 import ManageMyItem from './components/Pages/ManageItems/ManageMyItem';
 import Blog from './components/Pages/Blog/Blog';
+import SignUp from './components/Pages/SignUp/SignUp';
 
 function App() {
   // firebase deploy

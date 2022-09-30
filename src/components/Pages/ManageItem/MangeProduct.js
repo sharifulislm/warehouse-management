@@ -21,7 +21,7 @@ const MangeProduct = ({product}) => {
 <p className='price'> Price:{price}$</p>
 </div>
 <Card.Text className=''>
- {description.slice(0, 75)}...
+ {/* {description?.slice(0, 75)}... */}
 </Card.Text>
 
 {/* <Button onClick={() => navigateManage(_id)} className='update-btn' variant="primary">    update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button> */}

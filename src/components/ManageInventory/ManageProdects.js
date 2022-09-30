@@ -24,7 +24,7 @@ const ManageProdects = (props) => {
                 <p><small>Supplier: {supplierName}</small></p>
                 <p><small>Quantity: {quantity}</small></p></div>
                 <p className="product-name" title={description}>
-                   description: { description.length > 20 ? description.slice(0, 90) + '...': description }
+                   description: { description?.length > 20 ? description?.slice(0, 90) + '...': description }
                 </p>
             </div>
             <div className="delete-container">

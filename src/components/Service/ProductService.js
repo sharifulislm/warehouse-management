@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductService = ({services}) => {
   
-    const { _id,description,name,images,price,supplierName,quantity} =services;
+    const { _id,email,description,name,images,price,supplierName,quantity} =services;
     const navitate =useNavigate();
     const navigateInvetorydetail = _id => {
       navitate(`/Inventory/${_id}`);
@@ -22,13 +22,14 @@ const ProductService = ({services}) => {
     <div className='d-flex justify-content-between pe-2'>
     <h6>Supplier: <span>{supplierName}</span></h6>
 
-    <p className='price'> Price:{price}$</p>
+
+    <p className='price'> Price: <span>{price}</span>$</p>
     </div>
     <Card.Text className=''>
      {description.slice(0, 75)}...
     </Card.Text>
   
-    <Button onClick={() => navigateInvetorydetail(_id)} className='update-btn' variant="primary">   Stock update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button>
+    <Button onClick={() => navigateInvetorydetail(_id)} className='update-btn bg-secondary' variant="primary">   Stock update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button>
   </Card.Body>
 </Card>
         </div>
