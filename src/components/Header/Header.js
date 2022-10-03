@@ -36,8 +36,8 @@ const Header = () => {
 <Nav>
 
  <Nav.Link as={Link}to="Service">Services</Nav.Link>
- <Nav.Link as={Link}to="Contact"> Contact </Nav.Link>
- <Nav.Link as={Link}to="Contact"> Blog </Nav.Link>
+ <Nav.Link as={Link}to="Contact">Contact  </Nav.Link>
+ <Nav.Link as={Link}to="AddItem"> Add Item </Nav.Link>
 
 
 
@@ -47,7 +47,8 @@ const Header = () => {
 <NavDropdown title="my item " id="basic-nav-dropdown">
   
           <NavDropdown.Item >  <Nav.Link className='link-secondary' as={Link}to="userItem">  My Item </Nav.Link></NavDropdown.Item>
-          <NavDropdown.Item> <Nav.Link className='link-secondary' as={Link}to="MyItem"> Manage MyItem </Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item> <Nav.Link className='link-secondary' as={Link}to="MyItem"> Add MyItem </Nav.Link></NavDropdown.Item>
+          <NavDropdown.Item> <Nav.Link className='link-secondary' as={Link}to="ManageInventory"> Manage Service </Nav.Link></NavDropdown.Item>
           {/* <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
         </NavDropdown>
