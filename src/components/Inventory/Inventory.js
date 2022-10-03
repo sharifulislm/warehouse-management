@@ -1,99 +1,88 @@
 
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { Form } from 'react-bootstrap';
-import { useQuery } from 'react-query';
-
-// import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link,useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useInventory from '../../Hooks/useInventory';
-
-import Loading from '../Loading/Loading';
-// import auth from '../firebase.init';
 import './Inventory.css';
 
 const Inventory = () => {
     const {inventoryId} = useParams();
-    const [service ,setService]=useState({});
-    // const [service,setService] = useInventory(inventoryId);
-    // console.log(service.quantity);
-    const [Deliverd ,setDeliverd]=useState();
-   
-    console.log(service);
-    // console.log(quantitys);
-
-   
-    // const [quantitys,setquantity] =useState({})
-    // console.log(quantitys);
-useEffect(() => {
-
-
  
-    const url = `https://mighty-badlands-12872.herokuapp.com/inventory/${inventoryId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setService(data));
+    const [item, setItem] = useState({}); 
+   const [itemQty, setItemQty] = useState(0); 
+
+   const [deliveredError, setDeliveredError] = useState(""); 
+   const [stockError, setStockError] = useState(""); 
+    const url =`http://localhost:5000/item/${inventoryId}`;  
 
 
-},[])
-    
-    const { _id,email,description,name,images,price,supplierName,quantity} =service;
-    console.log(email);
-    console.log(service);
+
+    useEffect(() => { 
+      fetch(url) 
+        .then((res) => res.json()) 
+        .then((data) => { 
+          setItem(data); 
+          setItemQty(data.quantity); 
+        }); 
+    }, []);     
+    const { email,description,name,images,price,supplierName} =item;
+
 
     
     const HandaleDeliverd =() => {
-     
-            const fieldQuantity = parseInt(service.quantity);
-            const addQuantity = fieldQuantity - 1;
-            const updateQuantity = {quantity:addQuantity };
-            const url = `https://mighty-badlands-12872.herokuapp.com/update/${email}`;
-            fetch(url, {
-              method: "PUT",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(updateQuantity),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                const quantity = updateQuantity;
-                const newService = { ...service, quantity };
-                setService(newService);
-                toast("Your Delivered is successfully");
-              });
+      if (itemQty > 0) { 
+        const newQty = itemQty - 1; 
+        fetch(url, { 
+          method: "PUT", 
+          headers: { 
+            "Content-Type": "application/json", 
+          }, 
+          body: JSON.stringify({ quantity: newQty }), 
+        }) 
+          .then((response) => response.json()) 
+          .then((data) => { 
+            setItemQty(newQty); 
+            setDeliveredError(""); 
+            setStockError(""); 
+            toast.success("Delivered Successfully"); 
         
-    }
-         
-     
-
-  
-                
+          }) 
+          .catch((error) => { 
+            console.error("Error:", error); 
+          }); 
+      } else { 
+        setDeliveredError("Stock Empty!!"); 
+        setStockError(""); 
+      } 
+             
+    }          
     const handleAddQuantity = (event) => {
         event.preventDefault();
-        const fieldQuantity = parseInt(service.quantity);
-        const inputQuantity = parseInt(event.target.quantity.value);
-        const addQuantity = fieldQuantity + inputQuantity;
-        const updateQuantity = { quantity:addQuantity };
-        const url = `https://mighty-badlands-12872.herokuapp.com/update/${service.email}`;
-        fetch(url, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updateQuantity),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.modifiedCount > 0) {
-              const quantity = addQuantity;
-              const newProduct = { ...service, quantity };
-              setService(newProduct);
-              toast("Restock is successfully");
-              event.target.reset();
-            }
-          });
+        const stockNum = event.target.quantity.value; 
+        event.target.reset(); 
+        if (stockNum > 0) { 
+          const newStockNum = itemQty + parseInt(stockNum); 
+          fetch(url, { 
+            method: "PUT", 
+            headers: { 
+              "Content-Type": "application/json", 
+            }, 
+            body: JSON.stringify({ quantity: newStockNum }), 
+          }) 
+            .then((response) => response.json()) 
+            .then((data) => { 
+              setItemQty(newStockNum);
+              setStockError(""); 
+              setDeliveredError(""); 
+              toast.success("Stock Successful"); 
+            }) 
+            .catch((error) => { 
+              console.error("Error:", error); 
+            }); 
+        } else { 
+          setStockError("Number of stock can't be Negative or Zero"); 
+          setDeliveredError(""); 
+        } 
         
         
       };
@@ -113,7 +102,7 @@ useEffect(() => {
                   
                     <h6>Price: {price}</h6>
                     <h6>Supplier : {supplierName}</h6>
-                    <h4>quantity: {quantity} </h4>
+                    <h4>quantity: {itemQty} </h4>
                     <div>
                      <button onClick={HandaleDeliverd}  style={{background:'#03ab4f'}}>Deliverd</button>  <Link className='btn-manag' style={{background: '#04366b'}} to='/ManageInventory'>  Manage Inventories</Link>
                     </div>
@@ -121,6 +110,12 @@ useEffect(() => {
                
                    <form className='m-auto mx-auto text-center' onSubmit={handleAddQuantity}>
                    <span className='border p-2'>{email}</span> 
+                   {deliveredError && ( 
+             <p className="text-red-600 mt-4 text-center">{deliveredError}</p> 
+           )} 
+             {stockError && ( 
+               <p className="text-red-600 text-center mt-4">{stockError}</p> 
+             )} 
                    <br></br>
                 <input className='input  m-auto mb-2 input-bordered w-full ' type="text"name='quantity'  />
                 {/* <input className='w-100 mb-2' onChange={(e)=> {setQuantitys(e.target.value)}} type="number" name="quantity"/> */}

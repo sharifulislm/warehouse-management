@@ -36,7 +36,7 @@ function App() {
    <Route path='userItem' element={ <PrivateRoute> <ManageMyItem></ManageMyItem> </PrivateRoute> }></Route>
    <Route path='MyItem' element={ <PrivateRoute> <Manageitems></Manageitems> </PrivateRoute> }></Route>
    <Route path='ManageInventory' element={<ManageInventory></ManageInventory>}></Route>
-   <Route path='Blog' element={<Blog></Blog>}></Route>
+   {/* <Route path='Blog' element={<Blog></Blog>}></Route> */}
    <Route path='Login' element={<Login></Login>}></Route>
    <Route path='SignUp' element={<SignUp></SignUp>}></Route> 
   <Route path='*' element={<Notfound></Notfound>}>  </Route>
