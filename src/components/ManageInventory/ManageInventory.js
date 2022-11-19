@@ -4,7 +4,7 @@ import UseProducts from '../../Hooks/UseProducts';
 
 
 import ManageProdects from './ManageProdects';
-import './Mangeprodects.css'
+import './Mangeprodects.css';
 
 const ManageInventory = () => {
   
@@ -16,7 +16,7 @@ const ManageInventory = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
             console.log('deleting user with id, ',products.id);
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://mighty-badlands-12872.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

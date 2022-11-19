@@ -1,16 +1,20 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const UseProducts = () => {
     const [products, setProducts] = useState([]);
+    const [islodaing,setLoading]= useState(true)
 
     useEffect( () =>{
-        fetch('http://localhost:5000/inventory')
+        fetch('https://mighty-badlands-12872.herokuapp.com/inventory')
         .then(res => res.json())
-        .then(data => setProducts(data));
+        .then(data => {
+            setLoading(false)
+            setProducts(data)
+        })
         
     }, []);
 
-    return [products,setProducts];
+    return [products,islodaing];
 };
 
 export default UseProducts;

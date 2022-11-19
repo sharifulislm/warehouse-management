@@ -6,24 +6,24 @@ import Home from './components/Home/Home';
 import Footer from './components/Pages/Footers/Footers';
 import Login from './components/Pages/Login/Login';
 // import SignUp from './components/Pages/SignUp/SignUp';
+import { ToastContainer } from 'react-toastify';
 import Notfound from './components/Pages/Notfound/Notfound';
-import { ToastContainer, toast } from 'react-toastify';
 
 
-import Service from './components/Service/Service';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Contact from './components/Home/Contact';
 import Inventory from './components/Inventory/Inventory';
-import AddItem from './components/Pages/AddItem/AddItem';
 import ManageInventory from './components/ManageInventory/ManageInventory';
+import AddItem from './components/Pages/AddItem/AddItem';
 import ManageItem from './components/Pages/ManageItem/ManageItem';
 import Manageitems from './components/Pages/ManageItems/Manageitems';
 import ManageMyItem from './components/Pages/ManageItems/ManageMyItem';
-import Blog from './components/Pages/Blog/Blog';
 import SignUp from './components/Pages/SignUp/SignUp';
-import Contact from './components/Home/Contact';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Service from './components/Service/Service';
 
 function App() {
   // firebase deploy
+  // http://localhost:5000/
   return (
     <div className="">
  <Header></Header>

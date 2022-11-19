@@ -1,11 +1,16 @@
 import React from 'react';
 import UseProducts from '../../Hooks/UseProducts';
+import Loading from '../Loading/Loading';
 import ProductService from './ProductService';
 import './Service.css';
 
 const Service = () => {
-    const [products] = UseProducts()
-   
+    const [products,islodaing] = UseProducts()
+    console.log(islodaing)
+    
+    if(islodaing){
+        return <Loading></Loading>
+    }
 
     return (
         <div className='Container container '>

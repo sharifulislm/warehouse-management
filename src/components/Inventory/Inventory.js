@@ -1,8 +1,8 @@
 
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { Link,useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 import './Inventory.css';
 
 const Inventory = () => {
@@ -13,7 +13,8 @@ const Inventory = () => {
 
    const [deliveredError, setDeliveredError] = useState(""); 
    const [stockError, setStockError] = useState(""); 
-    const url =`http://localhost:5000/item/${inventoryId}`;  
+   const [islodaing,setLoading]=useState(true)
+    const url =`https://mighty-badlands-12872.herokuapp.com/item/${inventoryId}`;  
 
 
 
@@ -21,10 +22,14 @@ const Inventory = () => {
       fetch(url) 
         .then((res) => res.json()) 
         .then((data) => { 
+          setLoading(false)
           setItem(data); 
           setItemQty(data.quantity); 
         }); 
-    }, []);     
+    }, []);    
+    if(islodaing){
+      return <Loading></Loading>
+    } 
     const { email,description,name,images,price,supplierName} =item;
 
 

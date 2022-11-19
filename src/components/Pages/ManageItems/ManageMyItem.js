@@ -12,7 +12,7 @@ const ManageMyItem = () => {
 
          const getItem = async() => {
              const email = user.email;
-             const url = `http://localhost:5000/userItem?email=${email}`;
+             const url = `https://mighty-badlands-12872.herokuapp.com/userItem?email=${email}`;
              const {data} = await axios.get(url);
              setMyitem(data);
          }
