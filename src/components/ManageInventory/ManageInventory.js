@@ -16,7 +16,7 @@ const ManageInventory = () => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if(proceed){
             console.log('deleting user with id, ',products.id);
-            const url = `https://mighty-badlands-12872.herokuapp.com/inventory/${id}`;
+            const url = `http://localhost:5000/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

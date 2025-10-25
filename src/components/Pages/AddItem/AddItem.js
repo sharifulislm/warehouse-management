@@ -7,7 +7,9 @@ const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
      console.log(data);
-     const url = `https://mighty-badlands-12872.herokuapp.com/inventory`;
+     const url = `http://localhost:5000/inventory`;
+  
+    // http://localhost:5000/
      fetch(url, {
          method: 'POST',
          headers: {

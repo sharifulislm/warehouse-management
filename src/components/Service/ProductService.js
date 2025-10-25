@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import './Service.css';
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
+import './Service.css';
 
 const ProductService = ({services}) => {
   
@@ -26,8 +26,10 @@ const ProductService = ({services}) => {
     <p className='price'> Price: <span>{price}</span>$</p>
     </div>
     <Card.Text className=''>
-     {description.slice(0, 75)}...
+     {description?.slice(0,75)}...
+    
     </Card.Text>
+    
   
     <Button onClick={() => navigateInvetorydetail(_id)} className='update-btn bg-secondary' variant="primary">   Stock update  <BsArrowRightCircleFill></BsArrowRightCircleFill></Button>
   </Card.Body>

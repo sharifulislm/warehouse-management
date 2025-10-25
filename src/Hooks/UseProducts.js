@@ -5,7 +5,7 @@ const UseProducts = () => {
     const [islodaing,setLoading]= useState(true)
 
     useEffect( () =>{
-        fetch('https://mighty-badlands-12872.herokuapp.com/inventory')
+        fetch('http://localhost:5000/inventory')
         .then(res => res.json())
         .then(data => {
             setLoading(false)

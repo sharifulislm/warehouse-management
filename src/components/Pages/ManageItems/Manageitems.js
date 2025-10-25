@@ -27,7 +27,7 @@ const Manageitems = () => {
             
         
     
-        axios.post('https://mighty-badlands-12872.herokuapp.com/manageitem',myItem)
+        axios.post('http://localhost:5000/manageitem',myItem)
         .then(response =>{
             const {data} = response;
             if(data.insertedId){

@@ -14,7 +14,7 @@ const Inventory = () => {
    const [deliveredError, setDeliveredError] = useState(""); 
    const [stockError, setStockError] = useState(""); 
    const [islodaing,setLoading]=useState(true)
-    const url =`https://mighty-badlands-12872.herokuapp.com/item/${inventoryId}`;  
+    const url =`http://localhost:5000/item/${inventoryId}`;  
 
 
 
